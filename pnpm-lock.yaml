@@ -8,9 +8,9 @@ importers:
 
   .:
     dependencies:
-      '@nebula-services/bare-server-node':
-        specifier: ^2.0.4
-        version: 2.0.4
+      bare-server-edu:
+        specifier: ^2.0.2
+        version: 2.0.2
       chalk:
         specifier: ^5.3.0
         version: 5.3.0
@@ -95,11 +95,6 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@nebula-services/bare-server-node@2.0.4':
-    resolution: {integrity: sha512-Jcr+QtkLJVmppdbBarEbRp1TtCsL4pjFIcX6+KPURRqcsOP7hZfYclhjmCserwEC7jT+WBduXpFd3qwqeRBNew==}
-    engines: {node: '>=18.0.0'}
-    hasBin: true
-
   accepts@1.3.8:
     resolution: {integrity: sha512-PYAthTa2m2VKxuvSD3DPC/Gy+U+sOA1LAuT8mkmRuvw+NACSaeXEQ+NHcVF7rONl6qcaxV3Uuemwawk+7+SJLw==}
     engines: {node: '>= 0.6'}
@@ -110,6 +105,11 @@ packages:
   async-exit-hook@2.0.1:
     resolution: {integrity: sha512-NW2cX8m1Q7KPA7a5M2ULQeZ2wR5qI5PAbw5L0UOMxdioVk9PMZ0h1TmyZEkPYrCvYjDlFICusOu1dlEKAAeXBw==}
     engines: {node: '>=0.12.0'}
+
+  bare-server-edu@2.0.2:
+    resolution: {integrity: sha512-IHShws+c4M53sTBRDzqadvtoMbtLko6qINYkFWGY8tvn4DdTXV5Q3vEzlcEAwptEXUB1hAKOtxRH17+J+Sp+Bg==}
+    engines: {node: '>=18.0.0'}
+    hasBin: true
 
   basic-auth@2.0.1:
     resolution: {integrity: sha512-NF+epuEdnUYVlGuhaxbbq+dvJttwLnGY+YixlXlME5KpQ5W3CnXA5cVTneY3SPbPDRkcjMbifrwmFYcClgOZeg==}
@@ -134,9 +134,9 @@ packages:
     resolution: {integrity: sha512-dLitG79d+GV1Nb/VYcCDFivJeK1hiukt9QjRNVOsUtTy1rR1YJsmpGGTZ3qJos+uw7WmWF4wUwBd9jxjocFC2w==}
     engines: {node: ^12.17.0 || ^14.13 || >=16.0.0}
 
-  commander@10.0.1:
-    resolution: {integrity: sha512-y4Mg2tXshplEbSGzx7amzPwKKOCGuoSRP/CjEdwwk0FOGlUbq6lKuoyDZTNZkmxHdJtp54hdfY/JUrdL7Xfdug==}
-    engines: {node: '>=14'}
+  commander@13.0.0:
+    resolution: {integrity: sha512-oPYleIY8wmTVzkvQq10AEok6YcTC4sRUBl8F9gVuwchGVUCTbl/vhLTaQqutuuySYOsu8YTgV+OxKc/8Yvx+mQ==}
+    engines: {node: '>=18'}
 
   content-disposition@0.5.4:
     resolution: {integrity: sha512-FveZTNuGw04cxlAiWbzi6zTAL/lhehaWbTtgluJh4/E95DqMwTmha3KZN1aAWA8cFIhHzMZUvLevkw5Rqk+tSQ==}
@@ -191,6 +191,10 @@ packages:
 
   dotenv@16.4.5:
     resolution: {integrity: sha512-ZmdL2rui+eB2YwhsWzjInR8LldtZHGDoQ1ugH85ppHKwpUHL7j7rN0Ti9NCnGiQbhaZ11FpR+7ao1dNsmduNUg==}
+    engines: {node: '>=12'}
+
+  dotenv@16.4.7:
+    resolution: {integrity: sha512-47qPchRCykZC03FhkYAhrvwU4xDBFIj1QPqaarj6mdM/hgUzfPHcpkHJOn3mJAufFeeAxAzeGsr5X0M4k6fLZQ==}
     engines: {node: '>=12'}
 
   ee-first@1.1.1:
@@ -270,6 +274,9 @@ packages:
   hasown@2.0.2:
     resolution: {integrity: sha512-0hJU9SCPvmMzIBdZFqNPXWa6dqh7WdH0cII9y+CyS8rG3nL48Bclra9HmKhVVUHyPWNH5Y7xDwAB7bfgSjkUMQ==}
     engines: {node: '>= 0.4'}
+
+  headers-polyfill@4.0.3:
+    resolution: {integrity: sha512-IScLbePpkvO846sIwOtOTDjutRMWdXdJmXdMvk6gCBHxFO8d+QKOQedyZSxFTTFYRSmlgSTDtXqqq4pcenBXLQ==}
 
   http-errors@2.0.0:
     resolution: {integrity: sha512-FtwrG/euBzaEjYeRqOgly7G0qviiXoJWnvEH2Z1plBdXgbyjv34pHTSb9zoeHMyDy33+DWy5Wt9Wo+TURtOYSQ==}
@@ -483,19 +490,6 @@ snapshots:
   '@biomejs/cli-win32-x64@1.9.4':
     optional: true
 
-  '@nebula-services/bare-server-node@2.0.4':
-    dependencies:
-      async-exit-hook: 2.0.1
-      commander: 10.0.1
-      dotenv: 16.4.5
-      http-errors: 2.0.0
-      ipaddr.js: 2.2.0
-      source-map-support: 0.5.21
-      ws: 8.18.0
-    transitivePeerDependencies:
-      - bufferutil
-      - utf-8-validate
-
   accepts@1.3.8:
     dependencies:
       mime-types: 2.1.35
@@ -504,6 +498,20 @@ snapshots:
   array-flatten@1.1.1: {}
 
   async-exit-hook@2.0.1: {}
+
+  bare-server-edu@2.0.2:
+    dependencies:
+      async-exit-hook: 2.0.1
+      commander: 13.0.0
+      dotenv: 16.4.7
+      headers-polyfill: 4.0.3
+      http-errors: 2.0.0
+      ipaddr.js: 2.2.0
+      source-map-support: 0.5.21
+      ws: 8.18.0
+    transitivePeerDependencies:
+      - bufferutil
+      - utf-8-validate
 
   basic-auth@2.0.1:
     dependencies:
@@ -540,7 +548,7 @@ snapshots:
 
   chalk@5.3.0: {}
 
-  commander@10.0.1: {}
+  commander@13.0.0: {}
 
   content-disposition@0.5.4:
     dependencies:
@@ -581,6 +589,8 @@ snapshots:
   destroy@1.2.0: {}
 
   dotenv@16.4.5: {}
+
+  dotenv@16.4.7: {}
 
   ee-first@1.1.1: {}
 
@@ -688,6 +698,8 @@ snapshots:
   hasown@2.0.2:
     dependencies:
       function-bind: 1.1.2
+
+  headers-polyfill@4.0.3: {}
 
   http-errors@2.0.0:
     dependencies:
