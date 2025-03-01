@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import http from "node:http";
 import path from "node:path";
-import { createBareServer } from "@nebula-services/bare-server-node";
+import { createBareServer } from "bare-server-edu";
 import chalk from "chalk";
 import cookieParser from "cookie-parser";
 import cors from "cors";
